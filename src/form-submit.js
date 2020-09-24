@@ -18,24 +18,32 @@ class NameForm extends React.Component {
           body: JSON.stringify(this.state)
         }).then(function(response) {
           console.log(response)
+          
           return response.json();
+        }) .then(data => {
+            document.getElementById("text-output").innerHTML = data
         });
       event.preventDefault();
   }
   
     render() {
       return (
-        <form onSubmit={this.handleSubmit}>
-          <label>
-           Servicename:
-            <input type="text" value={this.state.value} name="servicename" onChange={this.handleChange} />
-          </label>
-          <label>
-            Namespace:
-            <input type="text" value={this.state.value} name="namespace" onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
+          <div>
+            <form onSubmit={this.handleSubmit}>
+            <label>
+            Servicename:
+                <input type="text" value={this.state.value} name="servicename" onChange={this.handleChange} />
+            </label>
+            <label>
+                Namespace:
+                <input type="text" value={this.state.value} name="namespace" onChange={this.handleChange} />
+            </label>
+            <input type="submit" value="Submit" />
+            </form>
+
+            <textarea id="text-output"></textarea>
+
+        </div>
       );
     }
     
