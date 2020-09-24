@@ -1,25 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello Hack4SSB
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <form>
+      <label> Servicename:
+      <input type="text" name="sname"/>
+      </label>
+      <label> Namespace:
+      <input type="text" name="nsname"/>
+      </label><br/><br/>
+      <input type="submit" value="Submit"/>
+    </form>
   );
 }
 
