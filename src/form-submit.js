@@ -2,7 +2,7 @@ import React from 'react';
 class NameForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { servicename: 'input required', namespace: 'input required' };
+    this.state = { servicename: '' , namespace: ''};
   }
 
   handleChange = (event) => {
@@ -11,10 +11,7 @@ class NameForm extends React.Component {
 
   handleSubmit = (event) => {
     // alert('A form was submitted: ' + this.state);
-    if (this.state.servicename == "input required")
-      return null
-    if (this.state.namespace == "input required")
-      return null
+
     fetch('https://q18vnh7iq9.execute-api.eu-central-1.amazonaws.com/hack', {
       method: 'POST',
       // We convert the React state to JSON and send it as the POST body
@@ -41,20 +38,20 @@ class NameForm extends React.Component {
             <img src="uc.gif"></img>
           </div>
         </div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} class="needs-validation">
           <div class="form-group">
             <div class="row">
               <div class="col-sm-2">
                 <div>
                   <label>
                     Servicename:
-            <input type="text" class="form-control" value={this.state.value} name="servicename" onChange={this.handleChange} placeholder="insert servicename" />
+            <input type="text" class="form-control" value={this.state.value} name="servicename" onChange={this.handleChange} placeholder="insert servicename" required/>
                   </label>
                 </div>
                 <div>
                   <label>
                     Namespace:
-            <input type="text" class="form-control" value={this.state.value} name="namespace" onChange={this.handleChange} placeholder="insert namespace" />
+            <input type="text" class="form-control" value={this.state.value} name="namespace" onChange={this.handleChange} placeholder="insert namespace" required/>
                   </label>
                 </div>
                 <button type="submit" class="btn btn-primary">Preview manifest</button>
