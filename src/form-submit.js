@@ -38,20 +38,20 @@ class NameForm extends React.Component {
             <img src="uc.gif"></img>
           </div>
         </div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} class="needs-validation">
           <div class="form-group">
             <div class="row">
               <div class="col-sm-2">
                 <div>
                   <label>
                     Servicename:
-            <input type="text" class="form-control" value={this.state.value} name="servicename" onChange={this.handleChange} placeholder="insert servicename" />
+            <input type="text" class="form-control" value={this.state.value} name="servicename" onChange={this.handleChange} placeholder="insert servicename" required/>
                   </label>
                 </div>
                 <div>
                   <label>
                     Namespace:
-            <input type="text" class="form-control" value={this.state.value} name="namespace" onChange={this.handleChange} placeholder="insert namespace" />
+            <input type="text" class="form-control" value={this.state.value} name="namespace" onChange={this.handleChange} placeholder="insert namespace" required/>
                   </label>
                 </div>
                 <button type="submit" class="btn btn-primary">Preview manifest</button>
